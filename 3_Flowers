@@ -1,0 +1,46 @@
+using System;
+
+namespace _03._Flowers
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int numberOfChrysanthemums = int.Parse(Console.ReadLine());
+            int numberOfRoses = int.Parse(Console.ReadLine());
+            int numberOfTulips = int.Parse(Console.ReadLine());
+            string season = Console.ReadLine();
+            char holidayOrNot = char.Parse(Console.ReadLine());
+
+            double price = 0.0;
+
+            if (season == "Spring" || season == "Summer")
+            {
+                price = numberOfChrysanthemums * 2 + numberOfRoses * 4.10 + numberOfTulips * 2.50;
+            }
+            else if (season == "Autumn" || season == "Winter")
+            {
+                price = numberOfChrysanthemums * 3.75 + numberOfRoses * 4.50 + numberOfTulips * 4.15;
+            }
+            if (holidayOrNot == 'Y')
+            {
+                price *= 1.15;
+            }
+            if (numberOfTulips > 7 && season == "Spring")
+            {
+                price *= 0.95;
+            }
+            else if (numberOfRoses >= 10 && season == "Winter")
+            {
+                price *= 0.90;
+            }
+            if (numberOfChrysanthemums + numberOfRoses + numberOfTulips > 20)
+            {
+                price *= 0.80;
+            }
+            price += 2;
+
+            Console.WriteLine($"{price:f2}");
+        }
+    }
+}
