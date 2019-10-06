@@ -1,0 +1,108 @@
+using System;
+
+namespace _02._Small_Shop
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string product = Console.ReadLine();
+            string city = Console.ReadLine();
+            double quantity = double.Parse(Console.ReadLine());
+            double price = 0.0;
+
+            double coffeePriceSofia = 0.50;
+            double coffeePricePlovdiv = 0.40;
+            double coffeePriceVarna = 0.45;
+            double waterPriceSofia = 0.80;
+            double waterPricePlovdiv = 0.70;
+            double waterPriceVarna = 0.70;
+            double beerPriceSofia = 1.20;
+            double beerPricePlovdiv = 1.15;
+            double beerPriceVarna = 1.10;
+            double sweetsPriceSofia = 1.45;
+            double sweetsPricePlovdiv = 1.30;
+            double sweetsPriceVarna = 1.35;
+            double peanutsPriceSofia = 1.60;
+            double peanutsPricePlovdiv = 1.50;
+            double peanutsPriceVarna = 1.55;
+
+            if (product == "coffee")
+            {
+                if (city == "Sofia")
+                {
+                    price = coffeePriceSofia * quantity;
+                }
+                else if (city == "Plovdiv")
+                {
+                    price = coffeePricePlovdiv * quantity;
+                }
+                else if (city == "Varna")
+                {
+                    price = coffeePriceVarna * quantity;
+                }
+            }
+            else if (product == "water")
+            {
+                if (city == "Sofia")
+                {
+                    price = waterPriceSofia * quantity;
+                }
+                else if (city == "Plovdiv")
+                {
+                    price = waterPricePlovdiv * quantity;
+                }
+                else if (city == "Varna")
+                {
+                    price = waterPriceVarna * quantity;
+                }
+            }
+            else if (product == "beer")
+            {
+                if (city == "Sofia")
+                {
+                    price = beerPriceSofia * quantity;
+                }
+                else if (city == "Plovdiv")
+                {
+                    price = beerPricePlovdiv * quantity;
+                }
+                else if (city == "Varna")
+                {
+                    price = beerPriceVarna * quantity;
+                }
+            }
+            else if (product == "sweets")
+            {
+                if (city == "Sofia")
+                {
+                    price = sweetsPriceSofia * quantity;
+                }
+                else if (city == "Plovdiv")
+                {
+                    price = sweetsPricePlovdiv * quantity;
+                }
+                else if (city == "Varna")
+                {
+                    price = sweetsPriceVarna * quantity;
+                }
+            }
+            else if (product == "peanuts")
+            {
+                if (city == "Sofia")
+                {
+                    price = peanutsPriceSofia * quantity;
+                }
+                else if (city == "Plovdiv")
+                {
+                    price = peanutsPricePlovdiv * quantity;
+                }
+                else if (city == "Varna")
+                {
+                    price = peanutsPriceVarna * quantity;
+                }
+            }
+            Console.WriteLine(price);
+        }
+    }
+}
