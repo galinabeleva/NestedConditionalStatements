@@ -1,0 +1,104 @@
+using System;
+
+namespace _06._Fruit_Shop
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string fruit = Console.ReadLine();
+            string weekday = Console.ReadLine();
+            double quantity = double.Parse(Console.ReadLine());
+
+            double bananaWeekday = 2.50;
+            double bananaWeekend = 2.70;
+            double appleWeekday = 1.20;
+            double appleWeekend = 1.25;
+            double orangeWeekday = 0.85;
+            double orangeWeekend = 0.90;
+            double grapefruitWeekday = 1.45;
+            double grapefruitWeekend = 1.60;
+            double kiwiWeekday = 2.70;
+            double kiwiWeekend = 3.00;
+            double pineappleWeekday = 5.50;
+            double pineappleWeekend = 5.60;
+            double grapesWeekday = 3.85;
+            double grapesWeekend = 4.20;
+
+            double price = 0.0;
+
+            if ((weekday != "Monday" && weekday != "Tuesday" && weekday != "Wednesday" && weekday != "Thursday" 
+                && weekday != "Friday" && weekday != "Saturday" && weekday != "Sunday") || 
+                (fruit != "banana" && fruit != "apple" && fruit != "orange" && fruit != "grapefruit" 
+                && fruit != "kiwi" && fruit != "pineapple" && fruit != "grapes"))
+            {
+                Console.WriteLine("error");
+            }
+
+            else if (weekday == "Monday" || weekday == "Tuesday" || weekday == "Wednesday" || weekday == "Thursday" || weekday == "Friday")
+            {
+                if (fruit == "banana")
+                {
+                    price = bananaWeekday * quantity;
+                }
+                else if (fruit == "apple")
+                {
+                    price = appleWeekday * quantity;
+                }
+                else if (fruit == "orange")
+                {
+                    price = orangeWeekday * quantity;
+                }
+                else if (fruit == "grapefruit")
+                {
+                    price = grapefruitWeekday * quantity;
+                }
+                else if (fruit == "kiwi")
+                {
+                    price = kiwiWeekday * quantity;
+                }
+                else if (fruit == "pineapple")
+                {
+                    price = pineappleWeekday * quantity;
+                }
+                else if (fruit == "grapes")
+                {
+                    price = grapesWeekday * quantity;
+                }
+                Console.WriteLine($"{price:f2}");
+            }
+            else if (weekday == "Saturday" || weekday == "Sunday")
+            {
+                if (fruit == "banana")
+                {
+                    price = bananaWeekend * quantity;
+                }
+                else if (fruit == "apple")
+                {
+                    price = appleWeekend * quantity;
+                }
+                else if (fruit == "orange")
+                {
+                    price = orangeWeekend * quantity;
+                }
+                else if (fruit == "grapefruit")
+                {
+                    price = grapefruitWeekend * quantity;
+                }
+                else if (fruit == "kiwi")
+                {
+                    price = kiwiWeekend * quantity;
+                }
+                else if (fruit == "pineapple")
+                {
+                    price = pineappleWeekend * quantity;
+                }
+                else if (fruit == "grapes")
+                {
+                    price = grapesWeekend * quantity;
+                }
+                Console.WriteLine($"{price:f2}");
+            }
+        }
+    }
+}
