@@ -1,0 +1,59 @@
+using System;
+
+namespace _01._Match_Tickets
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double budget = double.Parse(Console.ReadLine());
+            string category = Console.ReadLine();
+            int numberOfPeople = int.Parse(Console.ReadLine());
+
+            double tickerVIP = 499.99;
+            double ticketNormal = 249.99;
+
+            double transportPrice = 0.0;
+            double ticketsPrice = 0.0;
+
+            if (numberOfPeople <= 4)
+            {
+                transportPrice = budget * 0.75;
+            }
+            else if (numberOfPeople >= 5 && numberOfPeople <= 9)
+            {
+                transportPrice = budget * 0.60;
+            }
+            else if (numberOfPeople >= 10 && numberOfPeople <= 24)
+            {
+                transportPrice = budget * 0.50;
+            }
+            else if (numberOfPeople >= 25 && numberOfPeople <= 49)
+            {
+                transportPrice = budget * 0.40;
+            }
+            else
+            {
+                transportPrice = budget * 0.25;
+            }
+            if (category == "VIP")
+            {
+                ticketsPrice = tickerVIP * numberOfPeople;
+            }
+            else
+            {
+                ticketsPrice = ticketNormal * numberOfPeople;
+            }
+            double totalprice = transportPrice + ticketsPrice;
+            double moneyLeft = Math.Abs(totalprice - budget);
+            if (totalprice <= budget)
+            {
+                Console.WriteLine($"Yes! You have {moneyLeft:f2} leva left.");
+            }
+            else
+            {
+                Console.WriteLine($"Not enough money! You need {moneyLeft:f2} leva.");
+            }
+        }
+    }
+}
