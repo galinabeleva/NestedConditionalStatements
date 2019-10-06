@@ -1,0 +1,47 @@
+using System;
+
+namespace _05._Vacation
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double budget = double.Parse(Console.ReadLine());
+            string season = Console.ReadLine();
+
+            string location = "Alaska";
+            if (season == "Winter")
+            {
+                location = "Morocco";
+            }
+            string accommodation = "Hotel";
+            double price = budget * 0.90;
+
+            if (budget <= 1000)
+            {
+                accommodation = "Camp";
+                if (season == "Summer")
+                {
+                    price = budget * 0.65;
+                }
+                else
+                {
+                    price = budget * 0.45;
+                }
+            }
+            else if (budget > 1000 && budget <= 3000)
+            {
+                accommodation = "Hut";
+                if (season == "Summer")
+                {
+                    price = budget * 0.80;
+                }
+                else
+                {
+                    price = budget * 0.60;
+                }
+            }
+            Console.WriteLine($"{location} - {accommodation} - {price:f2}");
+        }
+    }
+}
