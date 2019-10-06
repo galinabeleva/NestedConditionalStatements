@@ -1,0 +1,27 @@
+using System;
+
+namespace _10._Volleyball
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string leapOrNormal = Console.ReadLine();
+            double numberOfHolidays = int.Parse(Console.ReadLine());
+            double weekendsAway = int.Parse(Console.ReadLine());
+
+            double daysForPlay = 0.0;
+
+            double playWeekendsInSofia = (48 - weekendsAway) * 3 / 4;
+            double playHolidays = numberOfHolidays * 2 / 3;
+
+            daysForPlay = playWeekendsInSofia + playHolidays + weekendsAway;
+
+            if (leapOrNormal == "leap")
+            {
+                daysForPlay *= 1.15;
+            }
+            Console.WriteLine(Math.Floor(daysForPlay));
+        }
+    }
+}
