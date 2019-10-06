@@ -1,0 +1,50 @@
+using System;
+
+namespace _06._Truck_Driver
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string season = Console.ReadLine();
+            double kilometersPerMonth = double.Parse(Console.ReadLine());
+
+            double pricePerKm = 1.45;
+
+            if (kilometersPerMonth <= 5000)
+            {
+                if (season == "Spring" || season == "Autumn")
+                {
+                    pricePerKm = 0.75;
+                }
+                else if (season == "Summer")
+                {
+                    pricePerKm = 0.90;
+                }
+                else
+                {
+                    pricePerKm = 1.05;
+                }
+            }
+            else if (kilometersPerMonth > 5000 && kilometersPerMonth <= 10000)
+            {
+                if (season == "Spring" || season == "Autumn")
+                {
+                    pricePerKm = 0.95;
+                }
+                else if (season == "Summer")
+                {
+                    pricePerKm = 1.10;
+                }
+                else
+                {
+                    pricePerKm = 1.25;
+                }
+            }
+            double totalEarned = pricePerKm * kilometersPerMonth * 4;
+            double taxes = totalEarned * 0.10;
+
+            Console.WriteLine($"{(totalEarned - taxes):f2}");
+        }
+    }
+}
