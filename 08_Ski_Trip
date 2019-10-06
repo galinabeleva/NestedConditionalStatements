@@ -1,0 +1,65 @@
+using System;
+
+namespace _08._Ski_Trip
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int holidayDays = int.Parse(Console.ReadLine());
+            string typeOfAccommodation = Console.ReadLine();
+            string evaluation = Console.ReadLine();
+
+            double roomPrice = 18;
+            double apartmentPrice = 25;
+            double prApartmentPrice = 35;
+
+            double price = 0.0;
+            int nights = holidayDays - 1;
+
+            if (typeOfAccommodation == "room for one person")
+            {
+                price = roomPrice * nights;
+            }
+            else if (typeOfAccommodation == "apartment")
+            {
+                if (holidayDays < 10)
+                {
+                    price = apartmentPrice * nights * 0.70;
+                }
+                else if (holidayDays >= 10 && holidayDays <= 15)
+                {
+                    price = apartmentPrice * nights * 0.65;
+                }
+                else if (holidayDays > 15)
+                {
+                    price = apartmentPrice * nights * 0.50;
+                }
+            }
+            else if (typeOfAccommodation == "president apartment")
+            {
+                if (holidayDays < 10)
+                {
+                    price = prApartmentPrice * nights * 0.90;
+                }
+                else if (holidayDays >= 10 && holidayDays <= 15)
+                {
+                    price = prApartmentPrice * nights * 0.85;
+                }
+                else if (holidayDays > 15)
+                {
+                    price = prApartmentPrice * nights * 0.80;
+                }
+            }
+            if (evaluation == "positive")
+            {
+                price *= 1.25;
+            }
+            else if (evaluation == "negative")
+            {
+                price *= 0.90;
+            }
+            Console.WriteLine($"{price:f2}");
+        }
+    }
+}
