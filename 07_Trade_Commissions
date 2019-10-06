@@ -1,0 +1,93 @@
+using System;
+
+namespace _07._Trade_Commissions
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string city = Console.ReadLine();
+            double sales = double.Parse(Console.ReadLine());
+
+            double salesSofiaUpTo500 = 0.05;
+            double salesVarnaUpTo500 = 0.045;
+            double salesPlovdivUpTo500 = 0.055;
+            double salesSofiaUpTo1000 = 0.07;
+            double salesVarnaUpTo1000 = 0.075;
+            double salesPlovdivUpTo1000 = 0.08;
+            double salesSofiaUpTo10000 = 0.08;
+            double salesVarnaUpTo10000 = 0.10;
+            double salesPlovdivUpTo10000 = 0.12;
+            double salesSofiaAbove10000 = 0.12;
+            double salesVarnaAbove10000 = 0.13;
+            double salesPlovdivAbove10000 = 0.145;
+
+            double commission = 0.0;
+
+            if ((city != "Sofia" && city != "Varna" && city != "Plovdiv") || sales < 0)
+            {
+                Console.WriteLine("error");
+            }
+            else if (city == "Sofia")
+            {
+                if (sales >= 0 && sales <= 500)
+                {
+                    commission = salesSofiaUpTo500 * sales;
+                }
+                else if (sales > 500 && sales <= 1000)
+                {
+                    commission = salesSofiaUpTo1000 * sales;
+                }
+                else if (sales > 1000 && sales <= 10000)
+                {
+                    commission = salesSofiaUpTo10000 * sales;
+                }
+                else if (sales > 10000)
+                {
+                    commission = salesSofiaAbove10000 * sales;
+                }
+                Console.WriteLine($"{commission:f2}");
+            }
+            else if (city == "Varna")
+            {
+                if (sales >= 0 && sales <= 500)
+                {
+                    commission = salesVarnaUpTo500 * sales;
+                }
+                else if (sales > 500 && sales <= 1000)
+                {
+                    commission = salesVarnaUpTo1000 * sales;
+                }
+                else if (sales > 1000 && sales <= 10000)
+                {
+                    commission = salesVarnaUpTo10000 * sales;
+                }
+                else if (sales > 10000)
+                {
+                    commission = salesVarnaAbove10000 * sales;
+                }
+                Console.WriteLine($"{commission:f2}");
+            }
+            else if (city == "Plovdiv")
+            {
+                if (sales >= 0 && sales <= 500)
+                {
+                    commission = salesPlovdivUpTo500 * sales;
+                }
+                else if (sales > 500 && sales <= 1000)
+                {
+                    commission = salesPlovdivUpTo1000 * sales;
+                }
+                else if (sales > 1000 && sales <= 10000)
+                {
+                    commission = salesPlovdivUpTo10000 * sales;
+                }
+                else if (sales > 10000)
+                {
+                    commission = salesPlovdivAbove10000 * sales;
+                }
+                Console.WriteLine($"{commission:f2}");
+            }
+        }
+    }
+}
