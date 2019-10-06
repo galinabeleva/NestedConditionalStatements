@@ -1,0 +1,59 @@
+using System;
+
+namespace _09._On_Time_for_the_Exam
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int examHours = int.Parse(Console.ReadLine());
+            int examMinutes = int.Parse(Console.ReadLine());
+            int arrivalHours = int.Parse(Console.ReadLine());
+            int arrivalMinutes = int.Parse(Console.ReadLine());
+
+            int examTotalMinutes = examHours * 60 + examMinutes;
+            int arrivalTotalMinutes = arrivalHours * 60 + arrivalMinutes;
+
+            int minutesDifference = Math.Abs(examTotalMinutes - arrivalTotalMinutes);
+            int hoursLateOrEarly = minutesDifference / 60;
+            int minutesLateOrEarly = minutesDifference % 60;
+
+            if (examTotalMinutes < arrivalTotalMinutes)
+            {
+                Console.WriteLine("Late");
+                if (arrivalTotalMinutes - examTotalMinutes < 60)
+                {
+                    Console.WriteLine($"{minutesDifference} minutes after the start");
+                }
+                else
+                {
+                    Console.WriteLine($"{hoursLateOrEarly}:{minutesLateOrEarly:d2} hours after the start");
+                }
+            }
+            else if (examTotalMinutes - arrivalTotalMinutes > 30)
+            {
+                Console.WriteLine("Early");
+                if (examTotalMinutes - arrivalTotalMinutes < 60)
+                {
+                    Console.WriteLine($"{minutesDifference} minutes before the start");
+                }
+                else
+                {
+                    Console.WriteLine($"{hoursLateOrEarly}:{minutesLateOrEarly:d2} hours before the start");
+                }
+            }
+            else
+            {
+                if (examTotalMinutes == arrivalTotalMinutes)
+                {
+                    Console.WriteLine("On time");
+                }
+                else if (examTotalMinutes - arrivalTotalMinutes <= 30)
+                {
+                    Console.WriteLine("On time");
+                    Console.WriteLine($"{minutesDifference} minutes before the start");
+                }
+            }
+        }
+    }
+}
