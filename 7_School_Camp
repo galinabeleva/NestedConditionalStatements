@@ -1,0 +1,89 @@
+using System;
+
+namespace _07._School_Camp
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string season = Console.ReadLine();
+            string groupType = Console.ReadLine();
+            int numuberOfStudents = int.Parse(Console.ReadLine());
+            int numberOfNights = int.Parse(Console.ReadLine());
+
+            double pricePerNight = 0.0;
+            string typeOfSport = "";
+
+            if (season == "Winter")
+            {
+                if (groupType == "girls")
+                {
+                    pricePerNight = 9.60;
+                    typeOfSport = "Gymnastics";
+                }
+                else if (groupType == "boys")
+                {
+                    pricePerNight = 9.60;
+                    typeOfSport = "Judo";
+                }
+                else if (groupType == "mixed")
+                {
+                    pricePerNight = 10;
+                    typeOfSport = "Ski";
+                }
+            }
+            else if (season == "Spring")
+            {
+                if (groupType == "girls")
+                {
+                    pricePerNight = 7.20;
+                    typeOfSport = "Athletics";
+                }
+                else if (groupType == "boys")
+                {
+                    pricePerNight = 7.20;
+                    typeOfSport = "Tennis";
+                }
+                else if (groupType == "mixed")
+                {
+                    pricePerNight = 9.50;
+                    typeOfSport = "Cycling";
+                }
+            }
+            else if (season == "Summer")
+            {
+                if (groupType == "girls")
+                {
+                    pricePerNight = 15;
+                    typeOfSport = "Volleyball";
+                }
+                else if (groupType == "boys")
+                {
+                    pricePerNight = 15;
+                    typeOfSport = "Football";
+                }
+                else if (groupType == "mixed")
+                {
+                    pricePerNight = 20;
+                    typeOfSport = "Swimming";
+                }
+            }
+            double totalPrice = pricePerNight * numuberOfStudents * numberOfNights;
+
+            if (numuberOfStudents >= 50)
+            {
+                totalPrice *= 0.50;
+            }
+            else if (numuberOfStudents >= 20 && numuberOfStudents < 50)
+            {
+                totalPrice *= 0.85;
+            }
+            else if (numuberOfStudents >= 10 && numuberOfStudents < 20)
+            {
+                totalPrice *= 0.95;
+            }
+
+            Console.WriteLine($"{typeOfSport} {totalPrice:f2} lv.");
+        }
+    }
+}
