@@ -1,0 +1,40 @@
+using System;
+
+namespace _02._Bike_Race
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int juniorBikers = int.Parse(Console.ReadLine());
+            int seniorBikers = int.Parse(Console.ReadLine());
+            string typeOfRoad = Console.ReadLine();
+
+            double totalFee = 0.0;
+
+            if (typeOfRoad == "trail")
+            {
+                totalFee = juniorBikers * 5.50 + seniorBikers * 7;
+            }
+            else if (typeOfRoad == "cross-country")
+            {
+                totalFee = juniorBikers * 8 + seniorBikers * 9.50;
+                if (juniorBikers + seniorBikers >= 50)
+                {
+                    totalFee *= 0.75;
+                }
+            }
+            else if (typeOfRoad == "downhill")
+            {
+                totalFee = juniorBikers * 12.25 + seniorBikers * 13.75;
+            }
+            else if (typeOfRoad == "road")
+            {
+                totalFee = juniorBikers * 20 + seniorBikers * 21.50;
+            }
+            double expences = totalFee * 0.05;
+
+            Console.WriteLine($"{(totalFee-expences):f2}");
+        }
+    }
+}
